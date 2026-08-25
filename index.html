@@ -87,7 +87,7 @@
   Skip to main content
 </a>
 
-<header class="navbar">
+<header class="navbar" id="navbar">
 
   <a class="logo" href="index.html">BILLORA</a>
 
@@ -97,9 +97,10 @@
     <a href="#about">About</a>
     <a href="#faq">FAQ</a>
     <a href="#support">Support</a>
+    <a href="#download" class="mobile-download-link">Get Billora</a>
   </nav>
 
-  <a href="#download" class="nav-button">
+  <a href="#download" class="nav-button magnetic">
     Get Billora
   </a>
 
@@ -109,6 +110,7 @@
     type="button"
     aria-label="Open navigation menu"
     aria-expanded="false"
+    aria-controls="main-navigation"
   >
     <span></span>
     <span></span>
@@ -124,27 +126,27 @@
 
   <div class="hero-content">
 
-    <span class="badge">
+    <span class="badge hero-in" style="--d:0">
       Smart Business Management
     </span>
 
-    <h1>
+    <h1 class="hero-in" style="--d:1">
       Billing made <span>simple.</span>
     </h1>
 
-    <p>
+    <p class="hero-in" style="--d:2">
       Billora helps businesses manage billing, products,
       inventory, customers, payments and business insights
       from one simple app.
     </p>
 
-    <div class="hero-buttons">
+    <div class="hero-buttons hero-in" style="--d:3">
 
-      <a href="#download" class="primary-button">
+      <a href="#download" class="primary-button magnetic">
         Get Billora
       </a>
 
-      <a href="#features" class="secondary-button">
+      <a href="#features" class="secondary-button magnetic">
         Explore Features
       </a>
 
@@ -152,8 +154,8 @@
 
   </div>
 
-  <div class="hero-preview" id="app">
-    <div class="real-app-preview">
+  <div class="hero-preview hero-in hero-in--preview" id="app" style="--d:2">
+    <div class="real-app-preview floaty">
       <img
        src="./Images/01_Home.png"
        alt="Billora business management dashboard">
@@ -167,7 +169,7 @@
 <!-- FEATURES -->
 <section id="screenshots" class="app-showcase">
 
-  <div class="section-heading">
+  <div class="section-heading reveal">
     <span>EXPLORE BILLORA</span>
     <h2>Everything at your fingertips.</h2>
     <p>
@@ -178,7 +180,7 @@
 
   <div class="screenshot-grid">
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/01_Home.png"
         alt="Billora Home dashboard"
@@ -192,7 +194,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/02_New_Invoice.png"
         alt="Billora New Invoice screen"
@@ -207,7 +209,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/03_Payments.png"
         alt="Billora Payments screen"
@@ -222,7 +224,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/04_Customer_Ledger.png"
         alt="Billora Customer Ledger screen"
@@ -237,7 +239,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/05_Invoice_Details.png"
         alt="Billora Invoice Details screen"
@@ -252,7 +254,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/06_Invoice_Details_Actions.png"
         alt="Billora Invoice Actions screen"
@@ -267,7 +269,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/07_Products.png"
         alt="Billora Products screen"
@@ -282,7 +284,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/08_Inventory.png"
         alt="Billora Inventory screen"
@@ -297,7 +299,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/09_Inventory_Analytics.png"
         alt="Billora Inventory Analytics screen"
@@ -312,7 +314,7 @@
       </div>
     </article>
 
-    <article class="screenshot-card">
+    <article class="screenshot-card reveal">
       <img
         src="./Images/10_Retail_Billing.png"
         alt="Billora Retail Billing screen"
@@ -332,7 +334,7 @@
 
 <section id="features" class="features">
 
-  <div class="section-heading">
+  <div class="section-heading reveal">
 
     <span>POWERFUL TOOLS</span>
 
@@ -350,7 +352,7 @@
 
   <div class="feature-grid">
 
-    <article class="feature-card">
+    <article class="feature-card reveal">
 
       <div class="feature-icon">🧾</div>
 
@@ -363,7 +365,7 @@
     </article>
 
 
-    <article class="feature-card">
+    <article class="feature-card reveal">
 
       <div class="feature-icon">📦</div>
 
@@ -377,7 +379,7 @@
     </article>
 
 
-    <article class="feature-card">
+    <article class="feature-card reveal">
 
       <div class="feature-icon">👥</div>
 
@@ -390,7 +392,7 @@
     </article>
 
 
-    <article class="feature-card">
+    <article class="feature-card reveal">
 
       <div class="feature-icon">📊</div>
 
@@ -404,7 +406,7 @@
     </article>
 
 
-    <article class="feature-card">
+    <article class="feature-card reveal">
 
       <div class="feature-icon">🤖</div>
 
@@ -418,7 +420,7 @@
     </article>
 
 
-    <article class="feature-card">
+    <article class="feature-card reveal">
 
       <div class="feature-icon">🔐</div>
 
@@ -440,7 +442,7 @@
 
 <section id="about" class="about">
 
-  <div>
+  <div class="reveal">
 
     <span class="section-label">
       ABOUT BILLORA
@@ -467,7 +469,7 @@
 <!-- FAQ -->
 <section id="faq" class="faq-section">
 
-  <div class="section-heading">
+  <div class="section-heading reveal">
     <span>FAQ</span>
     <h2>Questions about Billora?</h2>
     <p>
@@ -475,18 +477,20 @@
     </p>
   </div>
 
-  <div class="faq-list">
+  <div class="faq-list reveal">
 
     <details class="faq-item">
       <summary>
         What is Billora?
         <span>+</span>
       </summary>
-      <p>
-        Billora is a smart billing and business management app
-        designed to help businesses manage invoices, products,
-        inventory, customers, payments and business insights.
-      </p>
+      <div class="faq-answer">
+        <p>
+          Billora is a smart billing and business management app
+          designed to help businesses manage invoices, products,
+          inventory, customers, payments and business insights.
+        </p>
+      </div>
     </details>
 
     <details class="faq-item">
@@ -494,11 +498,13 @@
         Who is Billora designed for?
         <span>+</span>
       </summary>
-      <p>
-        Billora is designed with retailers and small businesses
-        in mind, helping them manage everyday business operations
-        from one place.
-      </p>
+      <div class="faq-answer">
+        <p>
+          Billora is designed with retailers and small businesses
+          in mind, helping them manage everyday business operations
+          from one place.
+        </p>
+      </div>
     </details>
 
     <details class="faq-item">
@@ -506,11 +512,13 @@
         Can I manage my inventory with Billora?
         <span>+</span>
       </summary>
-      <p>
-        Yes. Billora includes product and inventory management
-        features for monitoring products, stock levels and
-        inventory information.
-      </p>
+      <div class="faq-answer">
+        <p>
+          Yes. Billora includes product and inventory management
+          features for monitoring products, stock levels and
+          inventory information.
+        </p>
+      </div>
     </details>
 
     <details class="faq-item">
@@ -518,10 +526,12 @@
         Can I create invoices?
         <span>+</span>
       </summary>
-      <p>
-        Yes. Billora provides invoice creation and invoice
-        management features to help simplify billing.
-      </p>
+      <div class="faq-answer">
+        <p>
+          Yes. Billora provides invoice creation and invoice
+          management features to help simplify billing.
+        </p>
+      </div>
     </details>
 
     <details class="faq-item">
@@ -529,11 +539,13 @@
         Does Billora provide business reports?
         <span>+</span>
       </summary>
-      <p>
-        Billora includes business reporting and analytics features
-        to help you understand sales, purchases, expenses and
-        other business information.
-      </p>
+      <div class="faq-answer">
+        <p>
+          Billora includes business reporting and analytics features
+          to help you understand sales, purchases, expenses and
+          other business information.
+        </p>
+      </div>
     </details>
 
     <details class="faq-item">
@@ -541,11 +553,13 @@
         Is Billora available now?
         <span>+</span>
       </summary>
-      <p>
-        Billora is currently being prepared for launch.
-        Availability and supported platforms will be announced
-        when the app is ready.
-      </p>
+      <div class="faq-answer">
+        <p>
+          Billora is currently being prepared for launch.
+          Availability and supported platforms will be announced
+          when the app is ready.
+        </p>
+      </div>
     </details>
 
   </div>
@@ -555,7 +569,7 @@
 
 <section id="download" class="download download-section">
 
-  <div class="download-content">
+  <div class="download-content reveal">
 
     <span class="section-label">COMING SOON</span>
 
@@ -572,14 +586,14 @@
     <div class="download-buttons">
 
       <a href="#" class="primary-button coming-soon-button">
-        <span class="download-icon"></span>
+        <span class="download-icon"></span>
         <span>
           <small>Coming soon on the</small>
           App Store
         </span>
       </a>
 
-      <a href="#screenshots" class="secondary-button">
+      <a href="#screenshots" class="secondary-button magnetic">
         Explore the App
       </a>
 
@@ -598,18 +612,22 @@
 
 <section id="support" class="support">
 
-  <h2>
-    Need help?
-  </h2>
+  <div class="reveal">
 
-  <p>
-    For support questions, check the support page
-    or contact the Billora team.
-  </p>
+    <h2>
+      Need help?
+    </h2>
 
-  <a href="support.html" class="secondary-button">
-    Visit Support
-  </a>
+    <p>
+      For support questions, check the support page
+      or contact the Billora team.
+    </p>
+
+    <a href="support.html" class="secondary-button magnetic">
+      Visit Support
+    </a>
+
+  </div>
 
 </section>
 
