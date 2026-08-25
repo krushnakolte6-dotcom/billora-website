@@ -1,40 +1,135 @@
-document.addEventListener("DOMContentLoaded", function () {
+// =========================================
+// BILLORA — interactions & motion
+// =========================================
 
-    const button = document.getElementById("menu-button");
-    const menu = document.getElementById("main-navigation");
+(function () {
+  "use strict";
 
-    if (!button || !menu) {
-        return;
-    }
+  var reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-    button.addEventListener("click", function () {
+  // ---- Mobile menu ----
+  var menuButton = document.getElementById("menu-button");
+  var nav = document.getElementById("main-navigation");
 
-        menu.classList.toggle("mobile-open");
+  if (menuButton && nav) {
+    var closeMenu = function () {
+      nav.classList.remove("mobile-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation menu");
+    };
 
-        const opened = menu.classList.contains("mobile-open");
+    var openMenu = function () {
+      nav.classList.add("mobile-open");
+      menuButton.setAttribute("aria-expanded", "true");
+      menuButton.setAttribute("aria-label", "Close navigation menu");
+    };
 
-        button.setAttribute(
-            "aria-expanded",
-            opened ? "true" : "false"
-        );
-
-        button.setAttribute(
-            "aria-label",
-            opened
-                ? "Close navigation menu"
-                : "Open navigation menu"
-        );
-
+    menuButton.addEventListener("click", function () {
+      var isOpen = nav.classList.contains("mobile-open");
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    menu.querySelectorAll("a").forEach(function (link) {
+    // Close after choosing a link
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
 
-        link.addEventListener("click", function () {
+    // Close on outside click
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("mobile-open")) return;
+      if (nav.contains(e.target) || menuButton.contains(e.target)) return;
+      closeMenu();
+    });
 
-            menu.classList.remove("mobile-open");
+    // Close on Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
 
-            button.setAttribute(
-                "aria-expanded",
+    // Reset state if the viewport grows back to desktop
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 760) closeMenu();
+    });
+  }
+
+  // ---- Navbar scroll state ----
+  var navbar = document.getElementById("navbar");
+  if (navbar) {
+    var updateNavbar = function () {
+      if (window.scrollY > 12) {
+        navbar.classList.add("is-scrolled");
+      } else {
+        navbar.classList.remove("is-scrolled");
+      }
+    };
+    updateNavbar();
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+  }
+
+  // ---- Scroll reveal ----
+  var revealTargets = document.querySelectorAll(
+    ".reveal, .feature-grid, .screenshot-grid"
+  );
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  } else {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    revealTargets.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  // ---- FAQ accordion (only one open at a time, smooth height) ----
+  var faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (!item.open) return;
+      faqItems.forEach(function (other) {
+        if (other !== item && other.open) {
+          other.open = false;
+        }
+      });
+    });
+  });
+
+  // ---- Magnetic buttons (subtle pointer-follow on desktop) ----
+  if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".magnetic").forEach(function (btn) {
+      btn.addEventListener("mousemove", function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform =
+          "translate(" + x * 0.12 + "px, " + y * 0.28 + "px)";
+      });
+
+      btn.addEventListener("mouseleave", function () {
+        btn.style.transform = "";
+      });
+    });
+  }
+})();                "aria-expanded",
                 "false"
             );
 
